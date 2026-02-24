@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-image: linear-gradient(rgba(10, 15, 30, 0.8), rgba(10, 15, 30, 0.8)), url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Custom React-Select Styles */
+.react-select__control {
+  background: rgba(0,0,0,0.5) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: 8px !important;
+  min-height: 42px !important;
+}
+.react-select__single-value, .react-select__input {
+  color: white !important;
+}
+.react-select__menu {
+  background: rgba(15, 23, 40, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+.react-select__option {
+  background: transparent !important;
+  color: white !important;
+}
+.react-select__option:hover {
+  background: #e52e71 !important;
+}
+.react-select__multi-value {
+  background: rgba(229, 46, 113, 0.3) !important;
+}
+.react-select__multi-value__label {
+  color: white !important;
+}
+
+/* --- REALISTIC 3D CRICKET SHOT ANIMATION --- */
+.realistic-bat {
+  position: absolute;
+  top: 25%; left: 45%;
+  width: 45px; height: 250px;
+  background: 
+      linear-gradient(to bottom, transparent 30%, #e52e71 30%, #e52e71 36%, transparent 36%, transparent 42%, #222 42%, #222 45%, transparent 45%),
+      linear-gradient(to right, #8b5a2b, #cdaa7d, #deb887, #cdaa7d, #8b5a2b);
+  border-radius: 0 0 12px 12px;
+  box-shadow: inset -5px 0 10px rgba(0,0,0,0.5), 15px 20px 30px rgba(0,0,0,0.6);
+  transform-origin: 50% -70px; 
+  animation: realSwing 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  opacity: 0;
+}
+
+.realistic-bat::before {
+  content: ''; position: absolute; top: -70px; left: 10px; width: 25px; height: 70px;
+  background: repeating-linear-gradient(15deg, #222 0, #222 5px, #444 5px, #444 10px);
+  border-radius: 5px 5px 0 0; box-shadow: inset -4px 0 8px rgba(0,0,0,0.6);
+}
+
+.realistic-bat::after {
+  content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 12px;
+  background: #222; border-radius: 0 0 12px 12px; box-shadow: inset -2px 2px 5px rgba(255,255,255,0.2);
+}
+
+.realistic-ball {
+  position: absolute; width: 40px; height: 40px; border-radius: 50%;
+  background: radial-gradient(circle at 12px 12px, #ff4d4d, #990000);
+  box-shadow: inset -6px -6px 12px rgba(0,0,0,0.7), 8px 15px 20px rgba(0,0,0,0.5);
+  animation: realPitchAndHit 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; opacity: 0;
+}
+
+.realistic-ball::after {
+  content: ''; position: absolute; top: -2px; left: 18px; width: 4px; height: 44px;
+  background: repeating-linear-gradient(0deg, #fff 0, #fff 3px, transparent 3px, transparent 6px);
+  transform: rotate(15deg);
+}
+
+@keyframes realSwing {
+  0% { transform: rotate(70deg); opacity: 0; }
+  15% { transform: rotate(70deg); opacity: 1; } 
+  45% { transform: rotate(110deg); opacity: 1; } 
+  50% { transform: rotate(-20deg); opacity: 1; } 
+  65% { transform: rotate(-100deg); opacity: 1; } 
+  90% { transform: rotate(-100deg); opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+@keyframes realPitchAndHit {
+  0% { top: 10%; left: 60%; transform: scale(0.3) rotate(0deg); opacity: 0; }
+  20% { top: 20%; left: 56%; transform: scale(0.4) rotate(100deg); opacity: 1; } 
+  48% { top: 60%; left: 47%; transform: scale(1) rotate(360deg); opacity: 1; } 
+  50% { top: 55%; left: 45%; transform: scale(1.1) rotate(400deg); opacity: 1; filter: brightness(1.5); } 
+  60% { top: 10%; left: 10%; transform: scale(3) rotate(1000deg); opacity: 1; } 
+  80% { top: -20%; left: -20%; transform: scale(5) rotate(1500deg); opacity: 1; } 
+  100% { opacity: 0; display: none; }
+}
+
