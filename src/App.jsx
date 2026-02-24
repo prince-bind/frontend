@@ -33,7 +33,7 @@ export default function App() {
   useEffect(() => {
     const fetchMetadata = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/get_metadata');
+        const response = await axios.get('https://server-duv6.onrender.com/get_metadata');
         setVenues(response.data.venues); 
         setBatters(response.data.batters); 
         setBowlers(response.data.bowlers);
@@ -51,7 +51,7 @@ export default function App() {
     if (mode === "schedule" && schedule.length === 0) {
       setIsDataLoading(true);
       try {
-        const res = await axios.get('http://127.0.0.1:8000/get_world_cup_schedule');
+        const res = await axios.get('https://server-duv6.onrender.com/get_world_cup_schedule');
         setSchedule(res.data || []);
       } catch (e) {
         console.error("Schedule link offline");
