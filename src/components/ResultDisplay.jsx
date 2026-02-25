@@ -1,7 +1,6 @@
-import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell} from 'recharts';
 
-export const ResultDisplay = ({ results, radarData, dynamicBio }) => {
+export const ResultDisplay = ({ results, dynamicBio }) => {
   const topPick = results.top_recommendation;
   const topStats = results.predictions[0];
 
@@ -91,17 +90,6 @@ export const ResultDisplay = ({ results, radarData, dynamicBio }) => {
 
       {/* 3. Visualizations Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-        <ChartContainer title="Matchup Analysis">
-          <RadarChart data={radarData}>
-            <PolarGrid stroke="#334155" />
-            <PolarAngleAxis dataKey="metric" tick={{ fill: '#64748b', fontSize: 10, fontWeight: 800 }} />
-            <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
-            <Radar name={results.predictions[0].bowler} dataKey={results.predictions[0].bowler} stroke="#06b6d4" fill="#06b6d4" fillOpacity={0.4} strokeWidth={2} />
-            <Radar name={results.predictions[1]?.bowler || "Alt"} dataKey={results.predictions[1]?.bowler || "Alt"} stroke="#f97316" fill="#f97316" fillOpacity={0.2} strokeWidth={2} />
-            <Legend />
-          </RadarChart>
-        </ChartContainer>
-
         <ChartContainer title="Impact Ranking">
           <BarChart data={results.predictions}>
             <XAxis dataKey="bowler" stroke="#475569" tick={{ fill: '#94a3b8', fontSize: 10 }} />
